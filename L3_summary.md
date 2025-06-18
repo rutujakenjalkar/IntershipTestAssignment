@@ -17,7 +17,8 @@ Steps Followed:
 
 2.Connecting the orginal repo scira-mcp-ui-chat to the forked repo idosal/scira-mcp-ui-chat to get latest changes 
 
-``` git remote add upstream https://github.com/zaidmukaddam/scira-mcp-chat.git 
+```
+git remote add upstream https://github.com/zaidmukaddam/scira-mcp-chat.git 
 ```
 
 3.Getting the changes made to the original repo 
