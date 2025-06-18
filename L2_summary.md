@@ -1,4 +1,4 @@
-## ***L2 Task summary ***
+## L2 Task summary 
 
 1.Compare:
 2.Files Changed.
