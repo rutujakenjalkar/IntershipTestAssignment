@@ -1,88 +1,108 @@
-## L2 Task summary 
+#  L2 Task Summary
 
-**Tool used:  **
+##  Tools Used
 
-1.Compare  
+1. **Compare**  
+2. **Files Changed**  
+3. **History**  
+4. **Blame**  
+5. **Commits**  
 
-2.Files Changed  
+---
 
-3.History  
+##  1. File: `app/api/chat/route.ts`
 
-4.Blame  
+###  Summary:
 
-5.Commits
+1. **Cleanup Error Response Handling**  
+   - Rewrote the return statement for invalid `id` using better TypeScript alignment.
 
-1.File:app/api/chat/route.ts
+2. **Added `onFinish()` Function**  
+   - Marks the `responseComplete` status as true and closes the MCP client connection.
 
-Summary:
+3. **Removed Chat Creation and Storage Logic**
 
-1.Cleanup Error Response handling:
-- Rewrote the return statement to for invalid id in a readable format using better Typescript aligment.
-2.Added onFinish() Function:
-- marks the responseComplete status true and then and closes the mcp client connections
-3.Removed Chat creation and Storage logic.
+###  Reason for Change:
 
-Reason for change:
--Improves the readiblity of the code and helps in better understanding of the code.
--Avoids hanging connections after chat completion.
+- Improves readability and helps in better understanding of the code.  
+- Avoids hanging connections after chat completion.
 
-Type of change:
-1.Refactoring 
-2.Bug fixing/improvement.
+###  Type of Change:
 
-2.File:app/action.ts
+- Refactoring  
+- Bug fixing / Improvement  
 
-Summary:
-1.Added global map to store various standbox instances for different requests.
+---
 
-2.Added startsandbox() Function:
--Validate the input fields.
--Check if sandbox exists for the given id , if exists starts it and stored the sandbox in the active sandbox global map.
+##  2. File: `app/action.ts`
 
-3.Added stopSandbox() Function:
-- Check if the sandbox with the given id is present in the active sandbox map ,stop it and remove from the map.
+###  Summary:
 
-Type of change:
-Feature Addition
+1. **Added Global Map**  
+   - Stores various sandbox instances for different requests.
 
-3.File:components/tool-invocation.tsx
-Summary:
-1.Refactorizing 
-- Rewrote import statements,conditional statmentements, error handling, variable declarations,UI style properties
-into better Typescript alignment for better understanding of code and clarity.
+2. **Added `startSandbox()` Function**  
+   - Validates input fields  
+   - Checks if a sandbox exists for the given ID; if yes, starts it and stores it in the active sandbox global map.
 
-Type of change:
-1.Refactorization
+3. **Added `stopSandbox()` Function**  
+   - Stops and removes the sandbox from the active map if it exists.
 
-4.File :components/mcp-server-manager.tsx
+###  Type of Change:
 
-Summary:
--Added code to remove selected servers from selectedServers
--Added code to add selected servers from selectedServers
--Added toggleServerStatus() which controls the servers , provides better error handling for starting servers and logging.
--Updated code to stop server from running along with error handling.
--Updated restartServer() function to restart the server
--Added function getServerDisplayUrl() to display the correct server URL.
+- Feature Addition  
 
-Type of change:
-1.Feature Addition
-2.Improvement
+---
 
-5.File:components/chat.tsx
+##  3. File: `components/tool-invocation.tsx`
 
-Summary:
+###  Summary:
 
-1.Updated code to fetch chat with ChatID.
-2.Added Error handling to return empty chat instead of throwing an error.
+- Refactored:
+  - Import statements  
+  - Conditional statements  
+  - Error handling  
+  - Variable declarations  
+  - UI style properties  
+- All changes were made with better TypeScript alignment for improved clarity.
 
-Type of change:
-1.Improvement 
-2.Bug fix 
+###  Type of Change:
 
+- Refactorization  
 
+---
 
+##  4. File: `components/mcp-server-manager.tsx`
 
+###  Summary:
 
+- Added logic to **add/remove** selected servers from `selectedServers`.
+- Added `toggleServerStatus()`:
+  - Controls server start/stop actions
+  - Provides better error handling and logging
+- Updated:
+  - Logic to stop servers with improved error handling
+  - `restartServer()` function
+- Added:
+  - `getServerDisplayUrl()` to display the correct server URL
 
+###  Type of Change:
 
+- Feature Addition  
+- Improvement  
 
+---
+
+##  5. File: `components/chat.tsx`
+
+###  Summary:
+
+1. Updated code to **fetch chat using `ChatID`**.  
+2. Added **error handling** to return an empty chat instead of throwing an error.
+
+###  Type of Change:
+
+- Improvement  
+- Bug Fix  
+
+---
