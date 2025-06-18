@@ -10,9 +10,10 @@ Aim:
 Steps Followed:
 
 1.Clone the forked repo-
-'''
+```
  - git clone https://github.com/idosal/scira-mcp-ui-chat.git
- - cd scira-mcp-ui-chat'''
+ - cd scira-mcp-ui-chat
+```
 
 2.Connecting the orginal repo scira-mcp-ui-chat to the forked repo idosal/scira-mcp-ui-chat to get latest changes 
 
