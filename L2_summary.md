@@ -1,9 +1,10 @@
 ## L2 Task summary 
 
-1.Compare:
-2.Files Changed.
-3.History.
-4.Blame.
+Tool used:
+1.Compare
+2.Files Changed
+3.History
+4.Blame
 5.Commits
 
 1.File:app/api/chat/route.ts
