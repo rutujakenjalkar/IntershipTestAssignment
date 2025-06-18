@@ -2,8 +2,6 @@
 
 This document outlines the structure and functionality of the `idosal/scira-mcp-ui-chat` repository.
 
----
-
 ##  Directory Overview
 
 ### `ai/`
@@ -106,7 +104,7 @@ This document outlines the structure and functionality of the `idosal/scira-mcp-
 
 ---
 
-## 🤖 Agent Workflow
+##  Agent Workflow
 
 1. `chat.tsx` loads `chatId` and `userId`.
 2. `api/chats/route.ts` checks `userId` validity.
@@ -118,6 +116,6 @@ This document outlines the structure and functionality of the `idosal/scira-mcp-
    * Frontend sends GET to `/api/chats/[id]` with `userId`.
    * `getChatById()` fetches or returns 404/500 error.
 
----
+
 
 
