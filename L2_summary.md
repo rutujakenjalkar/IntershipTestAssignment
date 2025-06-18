@@ -1,6 +1,6 @@
-## L2 Task summary 
+**## L2 Task summary **
 
-Tool used:  
+**Tool used:  **
 
 1.Compare  
 
