@@ -86,9 +86,11 @@ export async function startSandbox(params: {
     }
   }
   
+
   // Build the command string
   let cmd: string;
   
+
   // Prepare the command based on the type of executable
   if (command === 'uvx') {
     // For uvx, use the direct format

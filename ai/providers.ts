@@ -1,13 +1,22 @@
+
+
 import { createOpenAI } from "@ai-sdk/openai";
 import { createGroq } from "@ai-sdk/groq";
 import { createAnthropic } from "@ai-sdk/anthropic";
 import { createXai } from "@ai-sdk/xai";
 
+
+//what are the content of this file?
+// This file defines AI model providers and their configurations for use in an application.
+
+//EXPLain the beloe code snippet
 import { 
   customProvider, 
   wrapLanguageModel, 
   extractReasoningMiddleware 
 } from "ai";
+
+//
 
 export interface ModelInfo {
   provider: string;
@@ -17,6 +26,7 @@ export interface ModelInfo {
   capabilities: string[];
 }
 
+//
 const middleware = extractReasoningMiddleware({
   tagName: 'think',
 });

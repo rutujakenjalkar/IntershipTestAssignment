@@ -9,6 +9,8 @@ export const runtime = 'nodejs';
 // Allow streaming responses up to 60 seconds
 export const maxDuration = 60;
 
+
+//Explain thiscode snippet
 export const dynamic = 'force-dynamic';
 
 export async function POST(req: Request) {

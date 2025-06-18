@@ -190,7 +190,7 @@ export const MCPServerManager = ({
         }
 
         if (newServer.type === 'sse' && !newServer.url) {
-            toast.error("Server URL is required for SSE transport");
+            toast.error("Server URL is required for HTTP or SSE transport");
             return;
         }
 
@@ -235,11 +235,29 @@ export const MCPServerManager = ({
                 toast.success(`Disabled MCP server: ${server.name}`);
             }
         } else {
-            // Add to selected servers but DON'T auto-start
+            // Add to selected servers
             onSelectedServersChange([...selectedServers, id]);
             const server = servers.find(s => s.id === id);
             
             if (server) {
+                // Auto-start the server if it's disconnected
+                if (!server.status || server.status === 'disconnected' || server.status === 'error') {
+                    updateServerStatus(server.id, 'connecting');
+                    startServer(id)
+                        .then(success => {
+                            if (success) {
+                                console.log(`Server ${server.name} successfully connected`);
+                            } else {
+                                console.error(`Failed to connect server ${server.name}`);
+                            }
+                        })
+                        .catch(error => {
+                            console.error(`Error connecting server ${server.name}:`, error);
+                            updateServerStatus(server.id, 'error', 
+                                `Failed to connect: ${error instanceof Error ? error.message : String(error)}`);
+                        });
+                }
+                
                 toast.success(`Enabled MCP server: ${server.name}`);
             }
         }
@@ -314,7 +332,7 @@ export const MCPServerManager = ({
             return;
         }
         if (newServer.type === 'sse' && !newServer.url) {
-            toast.error("Server URL is required for SSE transport");
+            toast.error("Server URL is required for HTTP or SSE transport");
             return;
         }
         if (newServer.type === 'stdio' && (!newServer.command || !newServer.args?.length)) {
@@ -486,7 +504,7 @@ export const MCPServerManager = ({
                                                         </div>
                                                         <div className="flex items-center gap-2">
                                                             <span className="text-xs px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground">
-                                                                {server.type.toUpperCase()}
+                                                                {server.type === "stdio" ? "STDIO" : server.url?.endsWith("/sse") ? "SSE" : "HTTP"}
                                                             </span>
                                                             
                                                             {/* Status indicator */}
@@ -619,8 +637,8 @@ export const MCPServerManager = ({
                                         >
                                             <Globe className={`h-5 w-5 shrink-0 ${newServer.type === 'sse' ? 'text-primary' : ''}`} />
                                             <div>
-                                                <p className="font-medium">SSE</p>
-                                                <p className="text-xs text-muted-foreground">Server-Sent Events</p>
+                                                <p className="font-medium">HTTP / SSE</p>
+                                                <p className="text-xs text-muted-foreground">Remote Server</p>
                                             </div>
                                         </button>
                                         
@@ -652,11 +670,11 @@ export const MCPServerManager = ({
                                         id="url"
                                         value={newServer.url}
                                         onChange={(e) => setNewServer({ ...newServer, url: e.target.value })}
-                                        placeholder="https://mcp.example.com/token/sse"
+                                        placeholder="https://mcp.example.com/token/mcp"
                                         className="relative z-0"
                                     />
                                     <p className="text-xs text-muted-foreground">
-                                        Full URL to the SSE endpoint of the MCP server
+                                        Full URL to the HTTP or SSE endpoint of the MCP server
                                     </p>
                                 </div>
                             ) : (
@@ -936,7 +954,7 @@ export const MCPServerManager = ({
                                             )}
                                             <p className="text-xs text-muted-foreground">
                                                 {newServer.type === 'sse'
-                                                    ? 'HTTP headers will be sent with requests to the SSE endpoint.'
+                                                    ? 'HTTP headers will be sent with requests to the HTTP or SSE endpoint.'
                                                     : 'Additional configuration parameters for the stdio transport.'}
                                             </p>
                                         </div>
