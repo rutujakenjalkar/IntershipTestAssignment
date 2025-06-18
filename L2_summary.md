@@ -1,4 +1,4 @@
-**## L2 Task summary **
+## L2 Task summary 
 
 **Tool used:  **
 
