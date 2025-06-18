@@ -1,7 +1,4 @@
-To compare zaidmukaddam/scira-mcp-chat to it's fork idosal/scira-mcp-ui-chat the compare tool present in GitHub UI is used .
-GitHub Tools used-
-
-l2_summary
+## ***L2 Task summary ***
 
 1.Compare:
 2.Files Changed.
