@@ -102,7 +102,6 @@ This document outlines the structure and functionality of the `idosal/scira-mcp-
 
   * `tsconfig.json`, `next.config.ts`, `package.json`
 
----
 
 ##  Agent Workflow
 
