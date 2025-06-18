@@ -53,4 +53,6 @@ Starts the nextjs server at the port http://localhost:3000/
 git remote add origin https://github.com/rutujakenjalkar/IntershipTestAssignment.git
 git push -u origin main
 ```
+Output :
+<img width="958" alt="image" src="https://github.com/user-attachments/assets/028b9f69-e55d-4f3e-8e69-0073dc5db592" />
 
