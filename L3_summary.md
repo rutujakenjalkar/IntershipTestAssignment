@@ -22,13 +22,11 @@ Steps Followed:
 
 3.Getting the changes made to the original repo 
 
-``` git fetch upstream 
-```
+``` git fetch upstream  ```
 
 4.Adding original repo's changes to the forked repo (Leads to merge conflicts)
 
-``` git merge upstream/main 
-```
+``` git merge upstream/main ```
 
 5.Resolving the conflicts in the files-
  
@@ -39,8 +37,7 @@ Steps Followed:
 
 6. Build and run the app
 
-``` pnpm dev
-```
+``` pnpm dev```
 Starts the nextjs server at the port http://localhost:3000/ 
 
 7.Push the code 
